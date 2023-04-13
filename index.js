@@ -86,19 +86,19 @@
 
 // ------------------------------bcrypt-----------------------------
 
-const express = require("express");
+// const express = require("express");
 
-const app = express();
+// const app = express();
 
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 
-// const saltRounds = 10;
-const salt = await bcrypt.genSalt(10)
+// // const saltRounds = 10;
+// const salt = await bcrypt.genSalt(10)
 
-const password = "admin123";
-const hashedpassword = await bcrypt.hash(password, salt);
+// const password = "admin123";
+// const hashedpassword = await bcrypt.hash(password, salt);
 
-const isMatch = await bcrypt.compare(password, hashedpassword)
+// const isMatch = await bcrypt.compare(password, hashedpassword)
 
 // -------------Example: for hashing the password--------------------
 
@@ -126,4 +126,32 @@ const isMatch = await bcrypt.compare(password, hashedpassword)
 // app.listen(8080, ()=>{
 //     console.log("Server is running")
 // })
+
+
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+// Assuming you have an email and password as strings
+const email = 'example@example.com';
+const password = 'password123';
+
+// Generate a salt
+bcrypt.genSalt(saltRounds, function(err, salt) {
+  if (err) {
+    console.error(err);
+  } else {
+    // Hash the password with the generated salt
+    bcrypt.hash(password, salt, function(err, hash) {
+      if (err) {
+        console.error(err);
+      } else {
+        // Store the email and hash in your database
+        console.log(`Email: ${email}`);
+        console.log(`Hash: ${hash}`);
+      }
+    });
+  }
+});
+
 
