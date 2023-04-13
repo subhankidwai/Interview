@@ -7,9 +7,7 @@
 //     console.log("Server running at port 3000");
 // })
 
-// ---------------------------------------
-
-// Example using Express of get and post method
+// -----------------Example using Express of get and post method----------------
 
 // const express = require("express")
 
@@ -88,44 +86,44 @@
 
 // ------------------------------bcrypt-----------------------------
 
-// const express = require("express");
+const express = require("express");
 
-// const app = express();
+const app = express();
 
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 
-// // const saltRounds = 10;
-// const salt = await bcrypt.genSalt(10)
+// const saltRounds = 10;
+const salt = await bcrypt.genSalt(10)
 
-// const password = "admin123";
-// const hashedpassword = await bcrypt.hash(password, salt);
+const password = "admin123";
+const hashedpassword = await bcrypt.hash(password, salt);
 
-// const isMatch = await bcrypt.compare(password, hashedpassword)
+const isMatch = await bcrypt.compare(password, hashedpassword)
 
 // -------------Example: for hashing the password--------------------
 
-const express = require("express");
-const bcrypt = require("bcrypt");
-const app = express();
+// const express = require("express");
+// const bcrypt = require("bcrypt");
+// const app = express();
 
-const saltRounds = 10;
+// const saltRounds = 10;
 
-app.post("/login", (req, res)=>{
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
+// app.post("/login", (req, res)=>{
+//     const name = req.body.name;
+//     const email = req.body.email;
+//     const password = req.body.password;
 
-    bcrypt.hash(password, saltRounds, (err, encryptpassword)=>{
-        if (err) {
-            res.sendStatus(401);
-        }
-        else {
-            res.send(encryptpassword)
-        }
-    })
-})
+//     bcrypt.hash(password, saltRounds, (err, encryptpassword)=>{
+//         if (err) {
+//             res.sendStatus(401);
+//         }
+//         else {
+//             res.send(encryptpassword)
+//         }
+//     })
+// })
 
-app.listen(8080, ()=>{
-    console.log("Server is running")
-})
+// app.listen(8080, ()=>{
+//     console.log("Server is running")
+// })
 
